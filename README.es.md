@@ -1,5 +1,7 @@
 # Almanaque de Claude Code
 
+[![npm](https://img.shields.io/npm/v/claude-code-almanac)](https://www.npmjs.com/package/claude-code-almanac) [![CI](https://github.com/GuilhermeBartmann/claude-code-almanac/actions/workflows/ci.yml/badge.svg)](https://github.com/GuilhermeBartmann/claude-code-almanac/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+
 [English](README.md) · [Português](README.pt-BR.md) · **Español**
 
 Una guía con búsqueda de todos los comandos `/` de Claude Code, en español, inglés y portugués. Lee *tu* instalación (comandos nativos, tus skills, tus plugins) y deja que Claude arme una receta paso a paso con lo que realmente tienes.
