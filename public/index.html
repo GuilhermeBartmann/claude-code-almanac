@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="almanaque-token" content="__TOKEN__">
+  <meta name="color-scheme" content="light dark">
+  <title>Almanaque</title>
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/app.css">
+  <script>
+    // aplica o tema salvo antes de pintar, sem piscar
+    try { const t = localStorage.getItem('almanaque.tema'); if (t) document.documentElement.dataset.theme = t; } catch {}
+  </script>
+</head>
+<body>
+  <div class="app" id="app">
+    <aside class="side" aria-label="Comandos">
+      <div class="side-top">
+        <label class="searchfield">
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="q" type="search" data-i18n-ph="search" autocomplete="off" spellcheck="false" aria-label="Search">
+          <kbd data-i18n-title="searchHint">/</kbd>
+        </label>
+        <div class="segmented" id="filters" role="group" aria-label="Filtrar por origem">
+          <button type="button" data-f="todos" aria-pressed="true" data-i18n="all"></button>
+          <button type="button" data-f="nativo" data-i18n="native"></button>
+          <button type="button" data-f="instalados" data-i18n="installed"></button>
+          <button type="button" data-f="favoritos" aria-pressed="false" data-i18n-title="favorites">★</button>
+        </div>
+      </div>
+      <div class="list" id="list" role="listbox" aria-label="Comandos" tabindex="-1"></div>
+      <footer class="side-foot" id="side-foot"></footer>
+    </aside>
+
+    <main class="main">
+      <header class="toolbar" id="toolbar">
+        <button class="tb-btn back" type="button" id="back" data-i18n-title="back">
+          <svg class="i" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg>
+        </button>
+        <div class="toolbar-title" id="tb-title"></div>
+        <span class="spacer"></span>
+        <div id="tb-actions" style="display:flex;gap:2px"></div>
+        <button class="tb-btn" id="spot-btn" type="button" data-i18n-title="quickSearch">
+          <svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        </button>
+        <div class="menu-wrap">
+          <button class="tb-btn" id="lang-btn" type="button" data-i18n-title="language" aria-haspopup="menu" aria-expanded="false">
+            <svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+          </button>
+          <div class="menu" id="lang-menu" role="menu" hidden>
+            <button type="button" role="menuitemradio" data-lang="pt">Português</button>
+            <button type="button" role="menuitemradio" data-lang="en">English</button>
+            <button type="button" role="menuitemradio" data-lang="es">Español</button>
+          </div>
+        </div>
+        <button class="tb-btn" id="theme" type="button" data-i18n-title="theme">
+          <svg class="i" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+        </button>
+      </header>
+      <div class="scroll" id="scroll" tabindex="-1"><div class="body" id="page"></div></div>
+    </main>
+  </div>
+  <div class="spot" id="spot" hidden>
+    <div class="spot-panel" role="dialog" aria-modal="true" aria-label="Buscar comandos">
+      <label class="spot-field">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="spot-q" type="text" data-i18n-ph="spotPh" autocomplete="off" spellcheck="false" aria-label="Search">
+      </label>
+      <div class="spot-list" id="spot-list" role="listbox"></div>
+      <div class="spot-foot"><span><kbd>↑</kbd><kbd>↓</kbd><span data-i18n="navigate"></span></span><span><kbd>↵</kbd><span data-i18n="open"></span></span><span><kbd>esc</kbd><span data-i18n="close"></span></span></div>
+    </div>
+  </div>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+{
+  "name": "claude-code-almanac",
+  "version": "0.1.0",
+  "description": "A searchable, trilingual (EN/PT/ES) guide to Claude Code slash commands, skills and plugins — with an assistant that builds step-by-step recipes from what you have installed.",
+  "keywords": [
+    "claude",
+    "claude-code",
+    "slash-commands",
+    "skills",
+    "plugins",
+    "cli",
+    "cheatsheet",
+    "almanac",
+    "i18n"
+  ],
+  "author": "Guilherme Bartmann (https://github.com/GuilhermeBartmann)",
+  "license": "MIT",
+  "homepage": "https://github.com/GuilhermeBartmann/claude-code-almanac#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GuilhermeBartmann/claude-code-almanac.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GuilhermeBartmann/claude-code-almanac/issues"
+  },
+  "type": "module",
+  "bin": {
+    "claude-code-almanac": "bin/cli.js",
+    "claude-almanaque": "bin/cli.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "public"
+  ],
+  "scripts": {
+    "start": "node bin/cli.js",
+    "dev": "node bin/cli.js --no-open",
+    "check": "node scripts/check.js",
+    "test": "node scripts/check.js && node scripts/smoke.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
